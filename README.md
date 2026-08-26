@@ -1,6 +1,6 @@
-# 🖥️ jKy0n-terminal
+# 🖥️ jkyon-terminal
 
-![jKy0n-terminal screenshot](docs/screenshot-2026-08-07.png)
+![jkyon-terminal screenshot](docs/screenshot-2026-08-07.png)
 
 > Ambiente de terminal unificado — **zsh** + **tmux** + **Alacritty** — com o mesmo comportamento em qualquer uma das minhas máquinas, seja Arch ou Gentoo, com GUI ou apenas SSH.
 
@@ -28,8 +28,8 @@ Esse repositório substitui a necessidade de configurar zsh/tmux/Alacritty do ze
 | Fonte Nerd Font | ícones do prompt e da barra do tmux |
 
 ```bash
-git clone git@github.com:jKy0n/jKy0n-terminal.git ~/.jKy0n-terminal
-cd ~/.jKy0n-terminal
+git clone git@github.com:jKy0n/jkyon-terminal.git ~/.jkyon-terminal
+cd ~/.jkyon-terminal
 ./install.sh
 ```
 
@@ -78,7 +78,7 @@ Outros módulos automáticos, sem comando pra digitar: detecção de `ssh-agent`
 
 ## 🗂️ Estrutura
 ```
-jKy0n-terminal/
+jkyon-terminal/
     ├── zsh/ # shared/ (módulos comuns), machines/ (overrides por host), secrets/ (cifrado), plugins/ (submodules)
     ├── tmux/ # tmux.conf, conf.d/, plugins/tpm (submodule)
     ├── alacritty/ # alacritty.toml + tema

@@ -1,4 +1,4 @@
-# ~/.jKy0n-terminal/zsh/shared/functions/ssh-agent.zsh
+# ~/.jkyon-terminal/zsh/shared/functions/ssh-agent.zsh
 
 
 # 1. Tenta herdar variáveis do systemd (PAM/Gnome-Keyring/SSH)

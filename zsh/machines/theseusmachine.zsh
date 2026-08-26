@@ -1,7 +1,7 @@
 #
 #        Title:      theseusmachine.zsh
 #        Brief:
-#        Path:       /home/jkyon/.jKy0n-terminal/zsh/machines/theseusmachine.zsh
+#        Path:       /home/jkyon/.jkyon-terminal/zsh/machines/theseusmachine.zsh
 #        Author:     John Kennedy a.k.a. jKyon
 #        Created:    2026-08-07
 #        Updated:    2026-08-18

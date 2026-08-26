@@ -1,6 +1,6 @@
 #
 #        Title:      git.zsh
-#        Brief:      Funções git genéricas — funciona com qualquer repo registrado (ShellScript, jKy0n-terminal, etc.)
+#        Brief:      Funções git genéricas — funciona com qualquer repo registrado (ShellScript, jkyon-terminal, etc.)
 #
 
 typeset -gA GIT_SYNC_REPOS=(
@@ -8,7 +8,7 @@ typeset -gA GIT_SYNC_REPOS=(
     nvim         "$HOME/.config/nvim"
     shellscript  "$HOME/ShellScript"
     systemd      "$HOME/.jkyon-systemd"
-    terminal     "$HOME/.jKy0n-terminal"
+    terminal     "$HOME/.jkyon-terminal"
 )
 
 typeset -ga GIT_SYNC_HOSTS=(

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="$HOME/.jKy0n-terminal"
+REPO="$HOME/.jkyon-terminal"
 cd "$REPO"
 
-echo "== jKy0n-terminal install =="
+echo "== jkyon-terminal install =="
 
 # 1. Tráfego real por SSH, sem exigir isso de quem só clona pra ver o repo
 git config url."git@github.com:".insteadOf "https://github.com/"

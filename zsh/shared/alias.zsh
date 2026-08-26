@@ -1,7 +1,7 @@
 #
 #        Title:      alias.zsh
 #        Brief:      My custom aliases for the terminal
-#        Path:       /home/jkyon/.jKy0n-terminal/zsh/shared/alias.zsh
+#        Path:       /home/jkyon/.jkyon-terminal/zsh/shared/alias.zsh
 #        Author:     John Kennedy a.k.a. jKyon
 #        Created:    2026-02-23
 #        Updated:    2026-08-19
@@ -21,7 +21,7 @@ alias cp='cp -v'
 alias dead-process-watcher='watch19 '\''ps -eo ppid,pid,stat,comm | grep " D" && ps -eo ppid,pid,stat,comm | grep " Z"'\'
 #
 # E
-alias ealias='nvim /home/jkyon/.jKy0n-terminal/zsh/shared/alias.zsh && rzsh'
+alias ealias='nvim /home/jkyon/.jkyon-terminal/zsh/shared/alias.zsh && rzsh'
 alias efstab='sudo -e /etc/fstab'
 alias emake='/home/jkyon/ShellScript/Tools/imake/emake/emake.sh'
 #
@@ -92,7 +92,7 @@ alias upgrade-distro='sh /home/jkyon/ShellScript/Tools/upgrade-distro/upgradeDis
 alias upgrade-kernel='sh /home/jkyon/ShellScript/TheseusMachine/tools/upgrade-kernel/upgrade-kernel.sh'
 #
 # V
-alias valias='bat /home/jkyon/.jKy0n-terminal/zsh/shared/alias.zsh' # ampliar para mostrar da máquina vigente
+alias valias='bat /home/jkyon/.jkyon-terminal/zsh/shared/alias.zsh' # ampliar para mostrar da máquina vigente
 alias vfstab='bat /etc/fstab'
 alias vmake='/home/jkyon/ShellScript/Tools/imake/vmake/vmake.sh'
 #
