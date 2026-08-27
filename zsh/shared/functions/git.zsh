@@ -7,7 +7,7 @@ typeset -gA GIT_SYNC_REPOS=(
     ai-context   "$HOME/.jkyon-ai-context"
     nvim         "$HOME/.config/nvim"
     shellscript  "$HOME/ShellScript"
-    systemd      "$HOME/.jkyon-systemd"
+    systemd      "/etc/jkyon-systemd"
     terminal     "$HOME/.jkyon-terminal"
 )
 
