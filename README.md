@@ -17,14 +17,14 @@ Esse repositório substitui a necessidade de configurar zsh/tmux/Alacritty do ze
 
 **Dependências** (instale antes de clonar):
 
-| Ferramenta | Papel |
-|---|---|
-| `git` | controle de versão |
-| `git-crypt` | decifra os secrets |
-| `gnupg` | chave usada pelo git-crypt |
-| `fzf` | completion fuzzy (perfil completo) |
-| `zoxide` | navegação inteligente de diretórios |
-| `atuin` | histórico com busca fuzzy |
+| Ferramenta      | Papel                               |
+| :-------------- | :---------------------------------- |
+| `git`           | controle de versão                  |
+| `git-crypt`     | decifra os secrets                  |
+| `gnupg`         | chave usada pelo git-crypt          |
+| `fzf`           | completion fuzzy (perfil completo)  |
+| `zoxide`        | navegação inteligente de diretórios |
+| `atuin`         | histórico com busca fuzzy           |
 | Fonte Nerd Font | ícones do prompt e da barra do tmux |
 
 ```bash
@@ -67,12 +67,12 @@ git-crypt add-gpg-user --trusted <fingerprint>
 
 Definidas em `zsh/shared/functions/git.zsh`, disponíveis em qualquer shell:
 
-| Função | O que faz |
-|---|---|
-| `git-cp "msg"` | commit + push do repositório atual |
-| `git-cp-sync "msg"` | `git-cp` + sincroniza esse mesmo repo nas outras máquinas registradas |
-| `git-sync [nome]` | puxa a versão mais recente nas outras máquinas (todos os repos, ou só um) |
-| `git-status-all [nome]` | mesma varredura do `git-sync`, mas só mostra status, sem alterar nada |
+| Função                  | O que faz                                                                 |
+| :---------------------- | :------------------------------------------------------------------------ |
+| `git-cp "msg"`          | commit + push do repositório atual                                        |
+| `git-cp-sync "msg"`     | `git-cp` + sincroniza esse mesmo repo nas outras máquinas registradas     |
+| `git-sync [nome]`       | puxa a versão mais recente nas outras máquinas (todos os repos, ou só um) |
+| `git-status-all [nome]` | mesma varredura do `git-sync`, mas só mostra status, sem alterar nada     |
 
 Outros módulos automáticos, sem comando pra digitar: detecção de `ssh-agent` correto (evita conflito com gpg-agent), clipboard com fallback OSC52 quando não há sessão gráfica, e correção de comandos via `pay-respects`.
 
