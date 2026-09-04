@@ -15,6 +15,7 @@
 alias bulk-ocr='/home/jkyon/ShellScript/Tools/bulk-ocr/bulk-ocr.sh'
 #
 # C
+alias claudio='cd ~/.jkyon-ai-context && claude'
 alias cp='cp -v'
 #
 # D
