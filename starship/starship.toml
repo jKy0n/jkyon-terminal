@@ -1,36 +1,260 @@
-# Prompt Starship — perfil completo (GUI: kitty/Alacritty, Nerd Font disponível)
-# Estilo Powerline (segmentos com fundo sólido conectados por setas ),
-# adaptado do preset oficial "Catppuccin Powerline" (starship.rs/presets).
-# Substitui o antigo zsh/shared/p10k.zsh.
-#
-# Paleta: Catppuccin Macchiato. O [os] (ícone da distro — Gentoo aqui,
-# Arch na outra máquina) sai em mauve, o accent que você escolheu pra
-# diferenciar essa máquina; o resto segue o fluxo de cor do preset original.
-
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](mauve)\
 $os\
-[](bg:pink fg:mauve)\
-$directory\
-[](bg:peach fg:pink)\
+$username\
+[](blue) [](sky)\
+${custom.pwd}\
+[](sky) \
 $git_branch\
+ \
 $git_status\
-[](fg:peach bg:green)\
-$nodejs\
-$python\
-$golang\
-$rust\
-$lua\
-$perl\
-[](fg:green bg:lavender)\
-$cmd_duration\
-[ ](fg:lavender)\
+$fill $cmd_duration\
+$fill [](lavender)\
+$time\
 $line_break\
 $character"""
 
-palette = "catppuccin_macchiato"
+add_newline = false
+
+palette = 'catppuccin_macchiato'
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:green)'
+error_symbol = '[❯](bold fg:red)'
+vimcmd_symbol = '[❮](bold fg:green)'
+vimcmd_replace_one_symbol = '[❮](bold fg:lavender)'
+vimcmd_replace_symbol = '[❮](bold fg:lavender)'
+vimcmd_visual_symbol = '[❮](bold fg:yellow)'
+
+[cmd_duration]
+show_milliseconds = true
+format = '([](fg:yellow)[ 󰥔 in $duration ](fg:crust bg:yellow)[](fg:yellow))'
+style = "bg:yellow"
+disabled = false
+show_notifications = true
+min_time_to_notify = 45000
+
+[custom.pwd]
+description = "Diretório atual com o último segmento em negrito"
+when = true
+shell = ["python3", "-c"]
+use_stdin = false
+unsafe_no_escape = true
+command = '''
+import os
+p = os.environ.get("PWD") or os.getcwd()
+home = os.environ.get("HOME", "")
+if home and (p == home or p.startswith(home + "/")):
+    p = "~" + p[len(home):]
+is_abs = p.startswith("/")
+segs = [s for s in p.split("/") if s]
+trunc = len(segs) > 4
+if trunc:
+    segs = segs[-4:]
+subs = {
+    "~": "\uf015 ",
+}
+segs = [subs.get(s, s) for s in segs]
+prefix = "\u2026/" if trunc else ("/" if is_abs else "")
+if len(segs) > 1:
+    head = "/".join(segs[:-1])
+    print(f"{prefix}{head}/\033[1m{segs[-1]}\033[22m", end="")
+else:
+    only = segs[-1] if segs else ""
+    print(f"{prefix}\033[1m{only}\033[22m", end="")
+'''
+format = "[ $output ]($style)"
+style = "bg:sky fg:crust"
+
+[fill]
+symbol = '.'
+# style = 'bold green'
+
+[git_branch]
+symbol = ""
+style = "bg:yellow bold"
+format = '([](fg:yellow)[ $symbol $branch ](fg:crust bg:yellow)[](fg:yellow))'
+
+[git_status]
+style = "bg:yellow bold"
+format = '([](fg:yellow)[ $all_status$ahead_behind ](fg:crust bg:yellow)[](fg:yellow))'
+
+[line_break]
+disabled = false
+
+[os]
+disabled = false
+style = "bg:blue fg:crust"
+format = '[ $symbol]($style)'
+
+[status]
+style = 'bg:blue'
+symbol = '🔴 '
+success_symbol = '🟢 SUCCESS'
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:lavender"
+format = '[[  $time ](fg:crust bg:lavender)]($style)'
+
+[username]
+show_always = true
+style_user = "bg:blue fg:crust bold"
+style_root = "bg:blue fg:re bold"
+format = '[ $user ]($style)'
+
+
+# ----------  Operational Symbols  ----------
+
+[os.symbols]
+Alpine = ""
+Amazon = ""
+Android = ""
+AOSC = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Fedora = "󰣛"
+Gentoo = "󰣨"
+Linux = "󰌽"
+Macos = "󰀵"
+Manjaro = ""
+Mint = "󰣭"
+Raspbian = "󰐿"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+SUSE = ""
+Ubuntu = "󰕈"
+Windows = ""
+
+# ----------  Languages  ----------
+
+[nodejs]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[bun]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[c]
+symbol = " "
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[php]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[java]
+symbol = " "
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[python]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:sapphire"
+format = '[[ $symbol( $context) ](fg:crust bg:sapphire)]($style)'
+
+[conda]
+symbol = "  "
+style = "fg:crust bg:sapphire"
+format = '[$symbol$environment ]($style)'
+ignore_base = false
+
+
+# ----------  Color Palette  ----------
+
+[palettes.catppuccin_latte]
+rosewater = "#dc8a78"
+flamingo = "#dd7878"
+pink = "#ea76cb"
+mauve = "#8839ef"
+red = "#d20f39"
+maroon = "#e64553"
+peach = "#fe640b"
+yellow = "#df8e1d"
+green = "#40a02b"
+teal = "#179299"
+sky = "#04a5e5"
+sapphire = "#209fb5"
+blue = "#1e66f5"
+lavender = "#7287fd"
+text = "#4c4f69"
+subtext1 = "#5c5f77"
+subtext0 = "#6c6f85"
+overlay2 = "#7c7f93"
+overlay1 = "#8c8fa1"
+overlay0 = "#9ca0b0"
+surface2 = "#acb0be"
+surface1 = "#bcc0cc"
+surface0 = "#ccd0da"
+base = "#eff1f5"
+mantle = "#e6e9ef"
+crust = "#dce0e8"
+
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
@@ -60,75 +284,30 @@ base = "#24273a"
 mantle = "#1e2030"
 crust = "#181926"
 
-[os]
-disabled = false
-style = "bg:mauve fg:crust"
-
-[os.symbols]
-Gentoo = "󰣨"
-Arch = "󰣇"
-Manjaro = ""
-Linux = "󰌽"
-
-[directory]
-style = "bg:pink fg:crust"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncate_to_repo = true
-
-[git_branch]
-symbol = ""
-style = "bg:peach"
-format = '[[ $symbol $branch ](fg:crust bg:peach)]($style)'
-
-[git_status]
-style = "bg:peach"
-format = '[[($all_status$ahead_behind )](fg:crust bg:peach)]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
-
-[python]
-symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
-
-[golang]
-symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
-
-[rust]
-symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
-
-[lua]
-symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
-
-[perl]
-symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
-
-[cmd_duration]
-min_time = 2000
-show_milliseconds = true
-format = "[  $duration ](fg:crust bg:lavender)"
-disabled = false
-
-[line_break]
-disabled = false
-
-[character]
-disabled = false
-success_symbol = '[❯](bold mauve)'
-error_symbol = '[❯](bold red)'
-vimcmd_symbol = '[❮](bold green)'
-vimcmd_replace_one_symbol = '[❮](bold lavender)'
-vimcmd_replace_symbol = '[❮](bold lavender)'
-vimcmd_visual_symbol = '[❮](bold yellow)'
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
