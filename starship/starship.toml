@@ -1,21 +1,32 @@
 # Prompt Starship — perfil completo (GUI: kitty/Alacritty, Nerd Font disponível)
-# Substitui o antigo zsh/shared/p10k.zsh. Propositalmente enxuto: o motivo da
-# troca foi justamente cansar da quantidade de segmentos configuráveis do p10k.
+# Estilo Powerline (segmentos com fundo sólido conectados por setas ),
+# adaptado do preset oficial "Catppuccin Powerline" (starship.rs/presets).
+# Substitui o antigo zsh/shared/p10k.zsh.
 #
-# Paleta: Catppuccin Macchiato, accent Mauve — mesmo esquema já aplicado em
-# KDE, GTK, Papirus e kitty (ver docs/theme.md ou histórico de commits).
+# Paleta: Catppuccin Macchiato. O [os] (ícone da distro — Gentoo aqui,
+# Arch na outra máquina) sai em mauve, o accent que você escolheu pra
+# diferenciar essa máquina; o resto segue o fluxo de cor do preset original.
+
+"$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+[](mauve)\
+$os\
+[](bg:pink fg:mauve)\
 $directory\
+[](bg:peach fg:pink)\
 $git_branch\
 $git_status\
+[](fg:peach bg:green)\
 $nodejs\
 $python\
 $golang\
 $rust\
 $lua\
 $perl\
+[](fg:green bg:lavender)\
 $cmd_duration\
+[ ](fg:lavender)\
 $line_break\
 $character"""
 
@@ -49,57 +60,75 @@ base = "#24273a"
 mantle = "#1e2030"
 crust = "#181926"
 
-[directory]
+[os]
+disabled = false
 style = "bg:mauve fg:crust"
+
+[os.symbols]
+Gentoo = "󰣨"
+Arch = "󰣇"
+Manjaro = ""
+Linux = "󰌽"
+
+[directory]
+style = "bg:pink fg:crust"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncate_to_repo = true
 
 [git_branch]
-style = "bg:surface0 fg:mauve"
-format = "[[ $symbol$branch ]($style)]"
-symbol = " "
+symbol = ""
+style = "bg:peach"
+format = '[[ $symbol $branch ](fg:crust bg:peach)]($style)'
 
 [git_status]
-style = "bg:surface0 fg:peach"
-format = "[[($all_status$ahead_behind) ]($style)]"
+style = "bg:peach"
+format = '[[($all_status$ahead_behind )](fg:crust bg:peach)]($style)'
 
 [nodejs]
-style = "fg:green"
-format = "[[ $symbol($version) ](fg:green)]"
-symbol = " "
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [python]
-style = "fg:yellow"
-format = "[[ $symbol($version) ](fg:yellow)]"
-symbol = " "
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
 
 [golang]
-style = "fg:sapphire"
-format = "[[ $symbol($version) ](fg:sapphire)]"
-symbol = " "
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [rust]
-style = "fg:peach"
-format = "[[ $symbol($version) ](fg:peach)]"
-symbol = " "
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [lua]
-style = "fg:blue"
-format = "[[ $symbol($version) ](fg:blue)]"
-symbol = " "
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [perl]
-style = "fg:blue"
-format = "[[ $symbol($version) ](fg:blue)]"
-symbol = " "
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [cmd_duration]
-style = "fg:overlay1"
-format = "[[ took $duration ](fg:overlay1)]"
 min_time = 2000
+show_milliseconds = true
+format = "[  $duration ](fg:crust bg:lavender)"
+disabled = false
+
+[line_break]
+disabled = false
 
 [character]
-success_symbol = "[❯](bold mauve)"
-error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[❮](bold green)"
+disabled = false
+success_symbol = '[❯](bold mauve)'
+error_symbol = '[❯](bold red)'
+vimcmd_symbol = '[❮](bold green)'
+vimcmd_replace_one_symbol = '[❮](bold lavender)'
+vimcmd_replace_symbol = '[❮](bold lavender)'
+vimcmd_visual_symbol = '[❮](bold yellow)'
