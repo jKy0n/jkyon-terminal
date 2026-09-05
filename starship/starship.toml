@@ -9,7 +9,7 @@ ${custom.pwd}\
 $git_branch\
  \
 $git_status\
-$fill $cmd_duration\
+$fill $sudo$cmd_duration\
 $fill [](lavender)\
 $time\
 $line_break\
@@ -30,7 +30,7 @@ vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
 show_milliseconds = true
-format = '([](fg:yellow)[ 󰥔 in $duration ](fg:crust bg:yellow)[](fg:yellow))'
+format = '([](fg:yellow)[  󰥔  in $duration  ](fg:crust bg:yellow)[](fg:yellow))'
 style = "bg:yellow"
 disabled = false
 show_notifications = true
@@ -69,7 +69,7 @@ format = "[ $output ]($style)"
 style = "bg:sky fg:crust"
 
 [fill]
-symbol = '.'
+symbol = '·'
 # style = 'bold green'
 
 [git_branch]
@@ -97,17 +97,22 @@ format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
 map_symbol = true
 disabled = false
 
+[sudo]
+style = 'green bold'
+symbol = '👩‍💻 '
+disabled = false
+
 [time]
 disabled = false
 time_format = "%R"
 style = "bg:lavender"
-format = '[[  $time ](fg:crust bg:lavender)]($style)'
+format = '[[    $time  ](fg:crust bg:lavender)]($style)'
 
 [username]
 show_always = true
 style_user = "bg:blue fg:crust bold"
-style_root = "bg:blue fg:re bold"
-format = '[ $user ]($style)'
+style_root = "bg:blue fg:red bold"
+format = '[  $user ]($style)'
 
 
 # ----------  Operational Symbols  ----------
