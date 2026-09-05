@@ -21,6 +21,7 @@ setopt COMPLETE_ALIASES
 ZSH_PLUGINS_D="$ZDOTDIR/plugins"
 [[ -r "$ZSH_PLUGINS_D/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$ZSH_PLUGINS_D/zsh-autosuggestions/zsh-autosuggestions.zsh"
 [[ -r "$ZSH_PLUGINS_D/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "$ZSH_PLUGINS_D/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[[ -r "$ZDOTDIR/shared/highlight-overrides.zsh" ]] && source "$ZDOTDIR/shared/highlight-overrides.zsh"
 
 command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)"
 command -v atuin  >/dev/null 2>&1 && eval "$(atuin init zsh)"
