@@ -30,16 +30,16 @@ truncate_to_repo = true
 
 [git_branch]
 style = "bg:surface0 fg:mauve"
-format = "[[ $symbol$branch ]($style)]"
+format = "[ $symbol$branch ]($style)"
 symbol = ""
 
 [git_status]
 style = "bg:surface0 fg:peach"
-format = "[[($all_status$ahead_behind) ]($style)]"
+format = "[($all_status$ahead_behind )]($style)"
 
 [cmd_duration]
 style = "fg:overlay1"
-format = "[[ took $duration ](fg:overlay1)]"
+format = "[ took $duration ](fg:overlay1)"
 min_time = 2000
 
 [character]
