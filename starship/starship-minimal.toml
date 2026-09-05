@@ -1,0 +1,48 @@
+# Prompt Starship — perfil mínimo (console físico do kernel / TTY headless)
+# Usado via $STARSHIP_CONFIG em zsh/minimal.zsh. Equivalente ao antigo
+# POWERLEVEL9K_MODE='ascii': o console só tem a fonte bitmap (Terminus),
+# sem os glyphs Unicode extras de Nerd Font — aqui os símbolos são só ASCII.
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$line_break\
+$character"""
+
+palette = "catppuccin_macchiato"
+
+[palettes.catppuccin_macchiato]
+mauve = "#c6a0f6"
+peach = "#f5a97f"
+surface0 = "#363a4f"
+overlay1 = "#8087a2"
+crust = "#181926"
+red = "#ed8796"
+green = "#a6da95"
+
+[directory]
+style = "bg:mauve fg:crust"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+style = "bg:surface0 fg:mauve"
+format = "[[ $symbol$branch ]($style)]"
+symbol = ""
+
+[git_status]
+style = "bg:surface0 fg:peach"
+format = "[[($all_status$ahead_behind) ]($style)]"
+
+[cmd_duration]
+style = "fg:overlay1"
+format = "[[ took $duration ](fg:overlay1)]"
+min_time = 2000
+
+[character]
+success_symbol = "[>](bold mauve)"
+error_symbol = "[>](bold red)"
+vimcmd_symbol = "[<](bold green)"

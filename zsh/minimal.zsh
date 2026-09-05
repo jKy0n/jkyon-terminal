@@ -25,10 +25,10 @@ ZSH_PLUGINS_D="$ZDOTDIR/plugins"
 command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)"
 command -v atuin  >/dev/null 2>&1 && eval "$(atuin init zsh)"
 
-# Força modo ASCII no p10k: sem isso, ícones de nerd-font viram
-# caixas vazias — o console só tem a fonte bitmap carregada (Terminus),
-# sem os glyphs Unicode extras que o terminal gráfico tem.
-typeset -g POWERLEVEL9K_MODE='ascii'
+# Console do kernel não tem glyphs de nerd-font — usa config ASCII-safe do
+# Starship em vez da variante completa (equivalente ao antigo
+# POWERLEVEL9K_MODE='ascii').
+export STARSHIP_CONFIG="$ZDOTDIR/../starship/starship-minimal.toml"
 source "$ZDOTDIR/shared/theme.zsh"
 
 [[ -r "$ZDOTDIR/shared/functions/git.zsh" ]] && source "$ZDOTDIR/shared/functions/git.zsh"

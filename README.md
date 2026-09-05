@@ -11,7 +11,7 @@ Esse repositório substitui a necessidade de configurar zsh/tmux/Alacritty do ze
 - 🔌 **Plugins vendorizados** como git submodules — o mesmo commit exato roda em qualquer distro, sem depender de qual versão o gerenciador de pacotes decidiu empacotar.
 - 🔐 **Secrets cifrados** com `git-crypt`, seguros mesmo com o repositório público.
 - 🖥️ **Perfil completo ou mínimo**, detectado automaticamente — TTY físico ou máquina headless caem num modo leve, sem ícones nem plugins pesados.
-- 🎨 Tema **Catppuccin** (Frappe) consistente entre o prompt (Powerlevel10k), a barra do tmux e o terminal.
+- 🎨 Tema **Catppuccin** (Frappe) consistente entre o prompt (Starship), a barra do tmux e o terminal.
 
 ## 🚀 Instalação
 
@@ -25,6 +25,7 @@ Esse repositório substitui a necessidade de configurar zsh/tmux/Alacritty do ze
 | `fzf`           | completion fuzzy (perfil completo)  |
 | `zoxide`        | navegação inteligente de diretórios |
 | `atuin`         | histórico com busca fuzzy           |
+| `starship`      | prompt (binário externo, não vendorizado) |
 | Fonte Nerd Font | ícones do prompt e da barra do tmux |
 
 ```bash
@@ -40,7 +41,6 @@ O script cuida de: symlinks pra `~/.config/{zsh,tmux,alacritty}` e `~/.zshenv` (
 ## 🔌 Plugins
 
 **zsh** (submodules, path idêntico em qualquer distro):
-- [powerlevel10k](https://github.com/romkatv/powerlevel10k) — prompt
 - [fzf-tab](https://github.com/Aloxaf/fzf-tab) — completion fuzzy
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
@@ -49,7 +49,7 @@ O script cuida de: symlinks pra `~/.config/{zsh,tmux,alacritty}` e `~/.zshenv` (
 - [catppuccin/tmux](https://github.com/catppuccin/tmux) — tema
 - tmux-sensible, tmux-better-mouse-mode
 
-**Binários de sistema** (não são plugins vendorizáveis, `install.sh` verifica): `fzf`, `zoxide`, `atuin`
+**Binários de sistema** (não são plugins vendorizáveis, `install.sh` verifica): `fzf`, `zoxide`, `atuin`, [`starship`](https://starship.rs) — prompt, tema em `starship/starship.toml` (perfil completo) e `starship/starship-minimal.toml` (TTY/headless)
 
 ## 🔐 Criptografia
 
@@ -82,6 +82,8 @@ jkyon-terminal/
     ├── zsh/ # shared/ (módulos comuns), machines/ (overrides por host), secrets/ (cifrado), plugins/ (submodules)
     ├── tmux/ # tmux.conf, conf.d/, plugins/tpm (submodule)
     ├── alacritty/ # alacritty.toml + tema
+    ├── kitty/ # kitty.conf + tema
+    ├── starship/ # starship.toml (completo) + starship-minimal.toml (TTY/headless)
     ├── docs (screenshots e documentação)
     └── install.sh
 ```

@@ -9,7 +9,7 @@ echo "== jkyon-terminal install =="
 # 1. Tráfego real por SSH, sem exigir isso de quem só clona pra ver o repo
 git config url."git@github.com:".insteadOf "https://github.com/"
 
-# 2. Plugins vendorizados (P10k, fzf-tab, autosuggestions, syntax-highlighting, TPM)
+# 2. Plugins vendorizados (fzf-tab, autosuggestions, syntax-highlighting, TPM)
 git submodule update --init --recursive
 
 # 3. Destrava os secrets — falha graciosamente se esta máquina ainda não
@@ -44,11 +44,12 @@ link() {
     echo "🔗 $dst → $src"
 }
 
-link "$REPO/zsh"         "$HOME/.config/zsh"
-link "$REPO/tmux"        "$HOME/.config/tmux"
-link "$REPO/alacritty"   "$HOME/.config/alacritty"
-link "$REPO/kitty"       "$HOME/.config/kitty"
-link "$REPO/zsh/.zshenv" "$HOME/.zshenv"
+link "$REPO/zsh"                       "$HOME/.config/zsh"
+link "$REPO/tmux"                      "$HOME/.config/tmux"
+link "$REPO/alacritty"                 "$HOME/.config/alacritty"
+link "$REPO/kitty"                     "$HOME/.config/kitty"
+link "$REPO/zsh/.zshenv"               "$HOME/.zshenv"
+link "$REPO/starship/starship.toml"    "$HOME/.config/starship.toml"
 
 # 6. Binários de sistema — checa e sugere, nunca instala sozinho sem você mandar
 check_pkg() {
@@ -67,10 +68,11 @@ check_pkg() {
     fi
 }
 
-check_pkg fzf    fzf    "provavelmente app-shells/fzf"
-check_pkg zoxide zoxide "provavelmente app-shells/zoxide"
-check_pkg atuin  atuin  "pode precisar do overlay GURU, confirme antes"
-check_pkg kitty  kitty  "provavelmente x11-terms/kitty"
+check_pkg fzf      fzf      "provavelmente app-shells/fzf"
+check_pkg zoxide   zoxide   "provavelmente app-shells/zoxide"
+check_pkg atuin    atuin    "pode precisar do overlay GURU, confirme antes"
+check_pkg kitty    kitty    "provavelmente x11-terms/kitty"
+check_pkg starship starship "provavelmente app-shells/starship, ou 'cargo install starship'"
 
 # kitty-terminfo é diferente dos outros: não instala binário nenhum, só uma
 # entry de terminfo. command -v não serve pra detectar isso — precisa checar

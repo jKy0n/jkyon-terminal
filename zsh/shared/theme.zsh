@@ -1,3 +1,4 @@
-# Tema Powerlevel10k (via submodule, path idêntico em qualquer distro)
-source "$HOME/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme"
-[[ ! -f "$HOME/.config/zsh/shared/p10k.zsh" ]] || source "$HOME/.config/zsh/shared/p10k.zsh"
+# Prompt Starship — binário externo (ver README/install.sh, check_pkg valida
+# a instalação), tema em starship/starship.toml. Guarda com `command -v` pra
+# não quebrar o shell numa máquina onde o binário ainda não foi instalado.
+command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
