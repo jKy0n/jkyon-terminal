@@ -4,7 +4,7 @@
 # sem os glyphs Unicode extras de Nerd Font — aqui os símbolos são só ASCII.
 
 format = """
-$os
+$os\
 $directory\
 $git_branch\
 $git_status\
