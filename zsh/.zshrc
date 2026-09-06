@@ -15,7 +15,7 @@ fi
 [[ -r "$ZDOTDIR/secrets/api-keys.zsh" ]] && source "$ZDOTDIR/secrets/api-keys.zsh"
 
 # Ordem é proposital, não alfabética — ver nota abaixo
-local -a JKYON_MODULES=(theme plugins highlight-overrides environment history keybinds alias vscode pay-respects tmux)
+local -a JKYON_MODULES=(theme plugins highlight-overrides environment history keybinds alias vscode pay-respects zellij)
 for module in "${JKYON_MODULES[@]}"; do
     [[ -r "$ZDOTDIR/shared/$module.zsh" ]] && source "$ZDOTDIR/shared/$module.zsh"
 done

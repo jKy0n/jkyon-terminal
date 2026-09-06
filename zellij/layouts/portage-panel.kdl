@@ -1,0 +1,41 @@
+layout {
+    pane split_direction="vertical" {
+        pane split_direction="horizontal" {
+            pane {
+                name "main"
+                command "env"
+                args "env" "-u" "ZELLIJ" "sh" "/home/jkyon/ShellScript/Tools/ffetch/ffetch.sh"
+                size "85%"
+            }
+            pane {
+                name "auxliary"
+                command "eselect"
+                args "kernel" "list"
+            }
+            size "65%"
+        }
+        pane split_direction="horizontal" {
+            pane {
+                name "genlop"
+                command "nice"
+                args "--adjustment=19" "genlop" "-ci"
+                size "50%"
+            }
+            pane {
+                name "distcc monitor"
+                command "nice"
+                args "--adjustment=19" "env" "DISTCC_DIR=/var/tmp/portage/.distcc" "distccmon-text" "1"
+
+            }
+            pane {
+                name "disks"
+                size "15%"
+                command "nice"
+                args "--adjustment=19" "watch" "--interval" "2" "df" "-h" "/efi" "/boot" "/" "/home" "/mnt/cache"
+
+            }
+        }
+    }
+}
+
+show_startup_tips false

@@ -48,6 +48,7 @@ link "$REPO/zsh"                       "$HOME/.config/zsh"
 link "$REPO/tmux"                      "$HOME/.config/tmux"
 link "$REPO/alacritty"                 "$HOME/.config/alacritty"
 link "$REPO/kitty"                     "$HOME/.config/kitty"
+link "$REPO/zellij"                    "$HOME/.config/zellij"
 link "$REPO/zsh/.zshenv"               "$HOME/.zshenv"
 link "$REPO/starship/starship.toml"    "$HOME/.config/starship.toml"
 

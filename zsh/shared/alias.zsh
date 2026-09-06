@@ -27,7 +27,7 @@ alias efstab='sudo -e /etc/fstab'
 alias emake='/home/jkyon/ShellScript/Tools/imake/emake/emake.sh'
 #
 # F
-alias ffetch='sh /home/jkyon/ShellScript/Tools/ffetch/ffetch.sh'
+alias ffetch='env -u ZELLIJ sh /home/jkyon/ShellScript/Tools/ffetch/ffetch.sh'
 #
 # G
 alias grep='grep --colour=auto'
@@ -65,6 +65,7 @@ alias ookla-home='speedtest --server-id=53390'
 alias ookla-work='speedtest --server-id=53390'
 #
 # P
+alias portage-panel='zellij --layout portage-panel'
 #
 # Q
 #
