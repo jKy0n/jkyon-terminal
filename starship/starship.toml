@@ -78,9 +78,9 @@ style = "bold"
 format = '([ $all_status$ahead_behind  ](fg:crust bold bg:green)[](fg:green))'
 
 [hostname]
-ssh_only = false
+ssh_only = true
 style = "fg:crust bg:peach"
-format = '[@](fg:red bold bg:peach)[ $hostname ](fg:crust bg:peach)[ ](fg:peach)'
+format = '[@](fg:crust bold bg:peach)[ $hostname ](fg:crust bg:peach)[ ](fg:peach)'
 
 [line_break]
 disabled = false
