@@ -132,7 +132,7 @@ if behind:
 
 print(" ".join(parts), end="")
 '''
-format = '([](fg:green)[ $output ](fg:crust bold bg:green)[](fg:green))'
+format = '([ ](fg:green)[ $output ](fg:crust bold bg:green)[ ](fg:green))'
 style = "bold"
 
 [fill]
@@ -142,7 +142,7 @@ symbol = '·'
 [hostname]
 ssh_only = true
 style = "fg:crust bg:peach"
-format = '([$hostname ]($style)[](fg:peach))'
+format = '([$hostname ]($style)[ ](fg:peach))'
 
 [line_break]
 disabled = false
@@ -175,7 +175,7 @@ format = '[[](lavender)[    $time  ](fg:crust bg:lavender)]($style)'
 show_always = false
 style_user = "fg:crust bg:peach bold"
 style_root = "fg:red bg:peach bold"
-format = '([](fg:peach)[ $user@]($style))'
+format = '([ ](fg:peach)[ $user@]($style))'
 
 
 # ----------  Operational Symbols  ----------
