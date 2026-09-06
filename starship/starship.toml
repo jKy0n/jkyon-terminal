@@ -3,8 +3,7 @@
 format = """
 $os(lavender)\
 ${custom.pwd}\
-$git_branch\
-$git_status \
+[ ](fg:green)$git_branch$git_status[](fg:green) \
 $fill $cmd_duration \
 $fill $username$hostname\
 $time \
@@ -71,11 +70,11 @@ symbol = '·'
 [git_branch]
 symbol = ""
 style = "bold"
-format = '([ ](fg:green)[  $symbol $branch ](fg:crust bold bg:green))'
+format = '([ $symbol $branch ](fg:crust bold bg:green))'
 
 [git_status]
 style = "bold"
-format = '([ $all_status $ahead_behind  ](fg:crust bold bg:green)[](fg:green))'
+format = '((fg:green bg:green)[ $all_status $ahead_behind ](fg:crust bold bg:green))'
 
 [hostname]
 ssh_only = true
