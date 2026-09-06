@@ -2,12 +2,12 @@
 
 format = """
 $os(lavender)\
-$username\
 ${custom.pwd}\
 $git_branch\
 $git_status \
-$fill $sudo$cmd_duration \
-$fill $time \
+$fill $cmd_duration \
+$fill $sudo $username\
+$time \
 $line_break \
 $character"""
 
@@ -17,12 +17,12 @@ palette = 'catppuccin_macchiato'
 
 [character]
 disabled = false
-success_symbol = '[❯](bold fg:green)'
-error_symbol = '[❯](bold fg:red)'
-vimcmd_symbol = '[❮](bold fg:green)'
-vimcmd_replace_one_symbol = '[❮](bold fg:lavender)'
-vimcmd_replace_symbol = '[❮](bold fg:lavender)'
-vimcmd_visual_symbol = '[❮](bold fg:yellow)'
+success_symbol = '[](bold fg:green)'
+error_symbol = '[](bold fg:red)'
+vimcmd_symbol = '[<](bold fg:green)'
+vimcmd_replace_one_symbol = '[<](bold fg:lavender)'
+vimcmd_replace_symbol = '[<](bold fg:lavender)'
+vimcmd_visual_symbol = '[<](bold fg:yellow)'
 
 [cmd_duration]
 show_milliseconds = false
@@ -61,8 +61,8 @@ else:
     only = segs[-1] if segs else ""
     print(f"{prefix}\033[1m{only}\033[22m", end="")
 '''
-format = "[  $output  ]($style)[](fg:sky)"
-style = "bg:sky fg:crust"
+format = "[  $output  ]($style)[](fg:blue)"
+style = "bg:blue fg:crust"
 
 [fill]
 symbol = '·'
@@ -71,11 +71,11 @@ symbol = '·'
 [git_branch]
 symbol = ""
 style = "bold"
-format = '([  $symbol $branch ](fg:crust bold bg:mauve)[](fg:mauve))'
+format = '([ ](fg:green)[  $symbol $branch ](fg:crust bold bg:green))'
 
 [git_status]
 style = "bold"
-format = '([](fg:mauve)[ $all_status$ahead_behind  ](fg:crust bold bg:mauve)[](fg:mauve))'
+format = '([ $all_status$ahead_behind  ](fg:crust bold bg:green)[](fg:green))'
 
 [line_break]
 disabled = false
@@ -106,9 +106,9 @@ format = '[[](lavender)[    $time  ](fg:crust bg:lavender)]($style)'
 
 [username]
 show_always = true
-style_user = "bg:blue fg:crust bold"
-style_root = "bg:blue fg:red bold"
-format = '[  $user ]($style)[](fg:blue bg:sky)'
+style_user = "bg:peach fg:crust bold"
+style_root = "bg:peach fg:red bold"
+format = '[](fg:peach)[ $user ]($style)[ ](fg:peach)'
 
 
 # ----------  Operational Symbols  ----------
