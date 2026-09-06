@@ -6,7 +6,7 @@ ${custom.pwd}\
 $git_branch\
 $git_status \
 $fill $cmd_duration \
-$fill $hostname\
+$fill $username$hostname\
 $time \
 $line_break \
 $character"""
@@ -78,9 +78,9 @@ style = "bold"
 format = '([ $all_status $ahead_behind  ](fg:crust bold bg:green)[](fg:green))'
 
 [hostname]
-ssh_only = false
+ssh_only = true
 style = "fg:crust bg:peach"
-format = '([ ](fg:peach)[$user]($style) [@ $hostname]($style)[ ](fg:peach))'
+format = '([$hostname ]($style)[](fg:peach))'
 
 [line_break]
 disabled = false
@@ -110,10 +110,10 @@ style = "bg:lavender"
 format = '[[](lavender)[    $time  ](fg:crust bg:lavender)]($style)'
 
 [username]
-show_always = true
-style_user = "bg:peach fg:crust bold"
-style_root = "bg:peach fg:red bold"
-format = '[$user]($style)'
+show_always = false
+style_user = "fg:crust bg:peach bold"
+style_root = "fg:red bg:peach bold"
+format = '([](fg:peach)[ $user@]($style))'
 
 
 # ----------  Operational Symbols  ----------
