@@ -65,3 +65,33 @@ min_time = 2000
 success_symbol = "[>](bold green)"
 error_symbol = "[>](bold red)"
 vimcmd_symbol = "[<](bold yellow)"
+
+[os]
+disabled = false
+style = "bg:lavender fg:crust"
+format = '[ $symbol ]($style)'
+
+
+# ----------  Operational Symbols  ----------
+
+[os.symbols]
+Alpine = ""
+Amazon = ""
+Android = ""
+AOSC = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Fedora = "󰣛"
+Gentoo = "󰣨"
+Linux = "󰌽"
+Macos = "󰀵"
+Manjaro = ""
+Mint = "󰣭"
+Raspbian = "󰐿"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+SUSE = ""
+Ubuntu = "󰕈"
+Windows = ""
