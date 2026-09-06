@@ -14,35 +14,54 @@ $character"""
 palette = "catppuccin_macchiato"
 
 [palettes.catppuccin_macchiato]
+rosewater = "#f4dbd6"
+flamingo = "#f0c6c6"
+pink = "#f5bde6"
 mauve = "#c6a0f6"
-peach = "#f5a97f"
-surface0 = "#363a4f"
-overlay1 = "#8087a2"
-crust = "#181926"
 red = "#ed8796"
+maroon = "#ee99a0"
+peach = "#f5a97f"
+yellow = "#eed49f"
 green = "#a6da95"
+teal = "#8bd5ca"
+sky = "#91d7e3"
+sapphire = "#7dc4e4"
+blue = "#8aadf4"
+lavender = "#b7bdf8"
+text = "#cad3f5"
+subtext1 = "#b8c0e0"
+subtext0 = "#a5adcb"
+overlay2 = "#939ab7"
+overlay1 = "#8087a2"
+overlay0 = "#6e738d"
+surface2 = "#5b6078"
+surface1 = "#494d64"
+surface0 = "#363a4f"
+base = "#24273a"
+mantle = "#1e2030"
+crust = "#181926"
 
 [directory]
-style = "bg:mauve fg:crust"
+style = "bg:blue fg:crust"
 format = "[ $path ]($style)"
-truncation_length = 3
+truncation_length = 4
 truncate_to_repo = true
 
 [git_branch]
-style = "bg:surface0 fg:mauve"
+style = "bg:green fg:crust"
 format = "[ $symbol$branch ]($style)"
 symbol = ""
 
 [git_status]
-style = "bg:surface0 fg:peach"
+style = "bg:green fg:crust"
 format = "[($all_status$ahead_behind )]($style)"
 
 [cmd_duration]
-style = "fg:overlay1"
+style = "fg:crust bg:yellow"
 format = "[ took $duration ](fg:overlay1)"
 min_time = 2000
 
 [character]
-success_symbol = "[>](bold mauve)"
+success_symbol = "[>](bold green)"
 error_symbol = "[>](bold red)"
-vimcmd_symbol = "[<](bold green)"
+vimcmd_symbol = "[<](bold yellow)"
