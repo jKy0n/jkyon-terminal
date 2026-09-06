@@ -61,7 +61,7 @@ else:
     only = segs[-1] if segs else ""
     print(f"{prefix}\033[1m{only}\033[22m", end="")
 '''
-format = "[  $output  ]($style)"
+format = "[  $output  ]($style)[](fg:sky)"
 style = "bg:sky fg:crust"
 
 [fill]
@@ -71,7 +71,7 @@ symbol = '·'
 [git_branch]
 symbol = ""
 style = "bold"
-format = '([](fg:sky bg:mauve)[  $symbol $branch ](fg:crust bold bg:mauve)[](fg:mauve))'
+format = '([  $symbol $branch ](fg:crust bold bg:mauve)[](fg:mauve))'
 
 [git_status]
 style = "bold"
