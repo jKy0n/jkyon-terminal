@@ -3,7 +3,7 @@
 format = """
 $os(lavender)\
 ${custom.pwd}\
-[ ](fg:green)$git_branch$git_status[](fg:green) \
+${custom.git} \
 $fill $cmd_duration \
 $fill $username$hostname\
 $time \
@@ -63,18 +63,81 @@ else:
 format = "[  $output  ]($style)[](fg:blue)"
 style = "bg:blue fg:crust"
 
+[custom.git]
+description = "Branch + status git, autocontido (so existe dentro de repo git)"
+when = true
+shell = ["python3", "-c"]
+use_stdin = false
+unsafe_no_escape = true
+command = '''
+import subprocess
+
+def run(args):
+    try:
+        return subprocess.run(["git", *args], capture_output=True, text=True, timeout=2)
+    except Exception:
+        return None
+
+top = run(["rev-parse", "--is-inside-work-tree"])
+if not top or top.returncode != 0 or top.stdout.strip() != "true":
+    raise SystemExit(0)
+
+b = run(["symbolic-ref", "--short", "-q", "HEAD"])
+if b and b.returncode == 0 and b.stdout.strip():
+    branch = b.stdout.strip()
+else:
+    h = run(["rev-parse", "--short", "HEAD"])
+    branch = h.stdout.strip() if h and h.returncode == 0 else "?"
+
+st = run(["status", "--porcelain=v1"])
+lines = st.stdout.splitlines() if st and st.returncode == 0 else []
+staged = modified = untracked = conflicted = 0
+for line in lines:
+    if len(line) < 2:
+        continue
+    x, y = line[0], line[1]
+    if x in "UAD" and y in "UAD" and x == y:
+        conflicted += 1
+    else:
+        if x not in " ?":
+            staged += 1
+        if y == "M":
+            modified += 1
+        if x == "?" and y == "?":
+            untracked += 1
+
+ahead = behind = 0
+ab = run(["rev-list", "--left-right", "--count", "HEAD...@{u}"])
+if ab and ab.returncode == 0:
+    parts = ab.stdout.split()
+    if len(parts) == 2:
+        ahead, behind = int(parts[0]), int(parts[1])
+
+parts = [f" {branch}"]
+status_bits = []
+if conflicted:
+    status_bits.append(f"={conflicted}")
+if staged:
+    status_bits.append(f"+{staged}")
+if modified:
+    status_bits.append(f"!{modified}")
+if untracked:
+    status_bits.append(f"?{untracked}")
+if status_bits:
+    parts.append("".join(status_bits))
+if ahead:
+    parts.append(f"⇡{ahead}")
+if behind:
+    parts.append(f"⇣{behind}")
+
+print(" ".join(parts), end="")
+'''
+format = '([](fg:green)[ $output ](fg:crust bold bg:green)[](fg:green))'
+style = "bold"
+
 [fill]
 symbol = '·'
 # style = 'bold green'
-
-[git_branch]
-symbol = ""
-style = "bold"
-format = '([ $symbol $branch ](fg:crust bold bg:green))'
-
-[git_status]
-style = "bold"
-format = '((fg:green bg:green)[ $all_status $ahead_behind ](fg:crust bold bg:green))'
 
 [hostname]
 ssh_only = true
