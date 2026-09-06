@@ -95,6 +95,8 @@ alias upgrade-kernel='sh /home/jkyon/ShellScript/TheseusMachine/tools/upgrade-ke
 #
 # V
 alias valias='bat /home/jkyon/.jkyon-terminal/zsh/shared/alias.zsh' # ampliar para mostrar da máquina vigente
+alias valias-all='bat /home/jkyon/.jkyon-terminal/zsh/shared/alias.zsh /home/jkyon/.jkyon-terminal/zsh/machines/theseusmachine.zsh'
+alias valias-theseusmachine='bat /home/jkyon/.jkyon-terminal/zsh/machines/theseusmachine.zsh'
 alias vfstab='bat /etc/fstab'
 alias vmake='/home/jkyon/ShellScript/Tools/imake/vmake/vmake.sh'
 #
