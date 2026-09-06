@@ -80,7 +80,7 @@ format = '([ $all_status$ahead_behind  ](fg:crust bold bg:green)[](fg:green))
 [hostname]
 ssh_only = false
 style = "fg:crust bg:peach"
-format = '[@](fg:text bold bg:peach)[ $hostname ](fg:crust bg:peach)[ ](fg:peach)'
+format = '[@](fg:red bold bg:peach)[ $hostname ](fg:crust bg:peach)[ ](fg:peach)'
 
 [line_break]
 disabled = false
