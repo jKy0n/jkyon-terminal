@@ -1,18 +1,14 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$os\
+$os(lavender)\
 $username\
-[](blue) [](sky)\
 ${custom.pwd}\
-[](sky) \
 $git_branch\
- \
-$git_status\
-$fill $sudo$cmd_duration\
-$fill [](lavender)\
-$time\
-$line_break\
+$git_status \
+$fill $sudo$cmd_duration \
+$fill $time \
+$line_break \
 $character"""
 
 add_newline = false
@@ -29,11 +25,11 @@ vimcmd_replace_symbol = '[❮](bold fg:lavender)'
 vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
-show_milliseconds = true
+show_milliseconds = false
 format = '([](fg:yellow)[  󰥔  in $duration  ](fg:crust bg:yellow)[](fg:yellow))'
 style = "bg:yellow"
 disabled = false
-show_notifications = true
+show_notifications = false
 min_time_to_notify = 45000
 
 [custom.pwd]
@@ -65,7 +61,7 @@ else:
     only = segs[-1] if segs else ""
     print(f"{prefix}\033[1m{only}\033[22m", end="")
 '''
-format = "[ $output ]($style)"
+format = "[  $output  ]($style)"
 style = "bg:sky fg:crust"
 
 [fill]
@@ -74,20 +70,20 @@ symbol = '·'
 
 [git_branch]
 symbol = ""
-style = "bg:yellow bold"
-format = '([](fg:yellow)[ $symbol $branch ](fg:crust bg:yellow)[](fg:yellow))'
+style = "bold"
+format = '([](fg:sky bg:mauve)[  $symbol $branch ](fg:crust bold bg:mauve)[](fg:mauve))'
 
 [git_status]
-style = "bg:yellow bold"
-format = '([](fg:yellow)[ $all_status$ahead_behind ](fg:crust bg:yellow)[](fg:yellow))'
+style = "bold"
+format = '([](fg:mauve)[ $all_status$ahead_behind  ](fg:crust bold bg:mauve)[](fg:mauve))'
 
 [line_break]
 disabled = false
 
 [os]
 disabled = false
-style = "bg:blue fg:crust"
-format = '[ $symbol]($style)'
+style = "bg:lavender fg:crust"
+format = '[  $symbol  ]($style)[](fg:lavender bg:blue)'
 
 [status]
 style = 'bg:blue'
@@ -106,13 +102,13 @@ disabled = false
 disabled = false
 time_format = "%R"
 style = "bg:lavender"
-format = '[[    $time  ](fg:crust bg:lavender)]($style)'
+format = '[[](lavender)[    $time  ](fg:crust bg:lavender)]($style)'
 
 [username]
 show_always = true
 style_user = "bg:blue fg:crust bold"
 style_root = "bg:blue fg:red bold"
-format = '[  $user ]($style)'
+format = '[  $user ]($style)[](fg:blue bg:sky)'
 
 
 # ----------  Operational Symbols  ----------
