@@ -10,11 +10,40 @@
 
 
 # Aliases específicos (Gentoo/Portage — não fazem sentido fora daqui)
+
+#
+#  A B C
+#
+#  D
 alias distcc-portage-watch='nice --adjustment=19 env DISTCC_DIR=/var/tmp/portage/.distcc distccmon-text 1'
+#
+#  E F
+#
+#  G
 alias genlop-watch='nice --adjustment=19 watch --color --interval 1 genlop -ci'
+#
+#  H I J K L M N O
+#
+#  P
 alias portage-sync='update-mirrorselect && sudo emerge --verbose --sync && update-distro'
 alias portage-unused-ranker='sh /home/jkyon/ShellScript/TheseusMachine/portage-tools/portage-unused-ranker/portage-unused-ranker.sh'
+#
+#  Q
+#
+#  R
 alias radeontop='radeontop --color --transparency'
+#
+#  S
 alias satisfactory-server='sh /home/jkyon/ShellScript/Games/satisfactory-server-update.sh'
+#
+#  T
+#
+#  U
 alias update-mirrorselect='sh /home/jkyon/ShellScript/TheseusMachine/systemd/PortageSync/systemd-mirrorselect-update.sh'
-alias wacom-set-stylus='xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput DisplayPort-0' # Funciona no niri?
+#
+#  V
+#
+#  W
+# alias wacom-set-stylus='xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput DisplayPort-0' # Funciona no niri?
+#
+#  X Y Z
