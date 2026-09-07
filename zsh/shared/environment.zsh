@@ -12,8 +12,11 @@ export SYSTEMD_EDITOR=nvim
 # essa variável (rofi, xdg-terminal-exec, "abrir terminal aqui" etc.)
 export TERMINAL=kitty
 
+export RUSTC_WRAPPER=sccache
+
 export CARGO_HOME="$HOME/.builds/cargo"
 export CARGO_TARGET_DIR="$HOME/.builds/cargo-target"
+export CARGO_INCREMENTAL=0   # incremental do cargo conflita com o cache do sccache
 
 export PIP_CACHE_DIR="$HOME/.builds/pip-cache"
 
