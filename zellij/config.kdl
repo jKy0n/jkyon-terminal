@@ -11,23 +11,39 @@ theme "catppuccin-macchiato"
 
 keybinds {
     // keybinds are divided into modes
+    locked {
+        bind "Ctrl g" { SwitchToMode "normal"; }
+    }
     normal {
         // bind instructions can include one or more keys (both keys will be bound separately)
         // bind keys can include one or more actions (all actions will be performed with no sequential guarantees)
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Ctrl p" { SwitchToMode "pane"; }
         bind "Alt n" { NewPane; }
-        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        // bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "F1" {
+            Run "glow" "-p" "/home/jkyon/.config/zellij/cheatsheet.md" {
+                floating true
+                close_on_exit true
+                name "Atalhos"
+                width "60%"
+                height "70%"
+                x "20%"
+                y "15%"
+            }
+        }
     }
-    pane {
+    pane {  //  Ctrl + P
         // bind "h" "Left" { MoveFocus "Left"; }
         // bind "l" "Right" { MoveFocus "Right"; }
         // bind "j" "Down" { MoveFocus "Down"; }
         // bind "k" "Up" { MoveFocus "Up"; }
         bind "p" { SwitchFocus; }
+        bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
-    locked {
-        bind "Ctrl g" { SwitchToMode "normal"; }
+    renamepane {
+        bind "c" { SwitchToMode "Normal"; }
+        bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
     }
 }
 
@@ -36,4 +52,3 @@ ui {
         rounded_corners true
     }
 }
-
