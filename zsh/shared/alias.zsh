@@ -4,7 +4,7 @@
 #        Path:       /home/jkyon/.jkyon-terminal/zsh/shared/alias.zsh
 #        Author:     John Kennedy a.k.a. jKyon
 #        Created:    2026-02-23
-#        Updated:    2026-08-19
+#        Updated:    2026-09-06
 #        Notes:      All the aliases I use in the terminal, organized alphabetically by the command they alias.
 #                    Some of these aliases are just for fun, while others are meant to improve my workflow and productivity.
 #                    Feel free to use any of these aliases or modify them to suit your needs!
@@ -23,6 +23,7 @@ alias dead-process-watcher='watch19 '\''ps -eo ppid,pid,stat,comm | grep " D" &&
 #
 # E
 alias ealias='nvim /home/jkyon/.jkyon-terminal/zsh/shared/alias.zsh && rzsh'
+alias ealias-theseusmachine='nvim /home/jkyon/.jkyon-terminal/zsh/machines/theseusmachine.zsh && rzsh'
 alias efstab='sudo -e /etc/fstab'
 alias emake='/home/jkyon/ShellScript/Tools/imake/emake/emake.sh'
 #
@@ -39,7 +40,6 @@ alias grep='grep --colour=auto'
 alias iotop='sudo iotop -aoP'
 #
 # J
-#
 #
 # K
 #
