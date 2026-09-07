@@ -1,0 +1,18 @@
+layout {
+    pane split_direction="vertical" {
+        pane {
+            name "Viamar-PC"
+            size "50%"
+            command "ssh"
+            args "viamar-pc" "-t" "htop"
+        }
+        pane {
+            name "Builder"
+            size "50%"
+            command "ssh"
+            args "builder" "-t" "htop"
+        }
+    }
+}
+
+show_startup_tips false

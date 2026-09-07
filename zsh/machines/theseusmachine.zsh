@@ -22,9 +22,14 @@ alias distcc-portage-watch='nice --adjustment=19 env DISTCC_DIR=/var/tmp/portage
 #  G
 alias genlop-watch='nice --adjustment=19 watch --color --interval 1 genlop -ci'
 #
-#  H I J K L M N O
+#  H I J
+#
+#  K
+#
+#  L M N O
 #
 #  P
+alias portage-panel='zellij --layout portage-panel'
 alias portage-sync='update-mirrorselect && sudo emerge --verbose --sync && update-distro'
 alias portage-unused-ranker='sh /home/jkyon/ShellScript/TheseusMachine/portage-tools/portage-unused-ranker/portage-unused-ranker.sh'
 #
@@ -34,9 +39,10 @@ alias portage-unused-ranker='sh /home/jkyon/ShellScript/TheseusMachine/portage-t
 alias radeontop='radeontop --color --transparency'
 #
 #  S
-alias satisfactory-server='sh /home/jkyon/ShellScript/Games/satisfactory-server-update.sh'
+# alias satisfactory-server='sh /home/jkyon/ShellScript/Games/satisfactory-server-update.sh'
 #
 #  T
+alias theseusmachine-kernel-upgrade-panel='zellij --layout theseusmachine-kernel-upgrade-panel'
 #
 #  U
 alias update-mirrorselect='sh /home/jkyon/ShellScript/TheseusMachine/systemd/PortageSync/systemd-mirrorselect-update.sh'

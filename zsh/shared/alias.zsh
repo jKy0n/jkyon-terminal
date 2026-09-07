@@ -16,7 +16,7 @@ alias bulk-ocr='/home/jkyon/ShellScript/Tools/bulk-ocr/bulk-ocr.sh'
 #
 # C
 alias claudio='cd ~/.jkyon-ai-context && claude'
-alias cp='cp -v'
+# alias cp='cp -v'
 #
 # D
 alias dead-process-watcher='watch19 '\''ps -eo ppid,pid,stat,comm | grep " D" && ps -eo ppid,pid,stat,comm | grep " Z"'\'
@@ -53,7 +53,7 @@ alias lsusb='echo "Use cyme instead: cyme --tree"'
 # M
 alias man='LANG=pt_BR.UTF-8 man'
 alias me-avise='sh /home/jkyon/ShellScript/Tools/avisoNoTerminal.sh'
-alias mv='mv -v'
+# alias mv='mv -v'
 #
 # N
 alias niri-status-services="/home/jkyon/ShellScript/niri/Tools/niri-status-services/niri-status-services.sh"
@@ -65,7 +65,6 @@ alias ookla-home='speedtest --server-id=53390'
 alias ookla-work='speedtest --server-id=53390'
 #
 # P
-alias portage-panel='zellij --layout portage-panel'
 #
 # Q
 #
