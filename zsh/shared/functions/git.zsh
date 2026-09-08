@@ -9,6 +9,7 @@ typeset -gA GIT_SYNC_REPOS=(
     shellscript  "$HOME/ShellScript"
     systemd      "/etc/jkyon-systemd"
     terminal     "$HOME/.jkyon-terminal"
+    zed          "$HOME/.config/zed"
 )
 
 typeset -ga GIT_SYNC_HOSTS=(
