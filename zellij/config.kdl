@@ -17,10 +17,6 @@ keybinds {
     normal {
         // bind instructions can include one or more keys (both keys will be bound separately)
         // bind keys can include one or more actions (all actions will be performed with no sequential guarantees)
-        bind "Ctrl g" { SwitchToMode "locked"; }
-        bind "Ctrl p" { SwitchToMode "pane"; }
-        bind "Alt n" { NewPane; }
-        // bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "F1" {
             Run "glow" "-p" "/home/jkyon/.config/zellij/cheatsheet.md" {
                 floating true
@@ -31,6 +27,11 @@ keybinds {
                 x "20%"
                 y "15%"
             }
+
+        bind "Ctrl g" { SwitchToMode "locked"; }
+        bind "Ctrl p" { SwitchToMode "pane"; }
+        bind "Alt n" { NewPane; }
+        // bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         }
     }
     pane {  //  Ctrl + P
