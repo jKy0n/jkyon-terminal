@@ -26,13 +26,13 @@ keybinds {
                 height "70%"
                 x "20%"
                 y "15%"
-            }
+                }
+        }
 
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Ctrl p" { SwitchToMode "pane"; }
         bind "Alt n" { NewPane; }
         // bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
-        }
     }
     pane {  //  Ctrl + P
         // bind "h" "Left" { MoveFocus "Left"; }
