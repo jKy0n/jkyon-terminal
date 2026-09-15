@@ -17,8 +17,7 @@ layout {
         pane split_direction="horizontal" {
             pane {
                 name "genlop"
-                command "nice"
-                args "--adjustment=19" "genlop" "-ci"
+                command "/home/jkyon/ShellScript/Tools/genlop-live.sh"
                 size "50%"
             }
             pane {
