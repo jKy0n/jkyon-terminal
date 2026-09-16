@@ -13,8 +13,7 @@ _jkyon_zellij_autostart() {
         [[ -x "$(command -v zellij)" ]] && \
         [[ $- == *i* ]] && \
         [[ "$TERM_PROGRAM" != "vscode" ]] && \
-        [[ "$TERM_PROGRAM" != "zed" ]] && \
-        [[ -z "$SSH_CONNECTION" && -z "$SSH_TTY" ]]; then
+        [[ "$TERM_PROGRAM" != "zed" ]]; then
 
         add-zsh-hook -d precmd _jkyon_zellij_autostart
 
