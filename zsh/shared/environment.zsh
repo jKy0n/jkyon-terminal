@@ -3,6 +3,7 @@
 #        Brief:      Configurações de ambiente compartilhadas entre as 4 máquinas
 #
 
+export VISUAL=nvim
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
 export SYSTEMD_EDITOR=nvim
