@@ -14,6 +14,11 @@ export SYSTEMD_EDITOR=nvim
 export TERMINAL=kitty
 
 export RUSTC_WRAPPER=sccache
+# Sem isso, o daemon expira sozinho (default ~10min de inatividade) em
+# builds longos com trechos seriais/sem paralelismo — descoberto durante
+# validação do EPP no Viamar-PC (2026-09-21), quebrou a separação entre
+# build local e distribuído em dois testes seguidos.
+export SCCACHE_IDLE_TIMEOUT=0
 
 export CARGO_HOME="$HOME/.builds/cargo"
 export CARGO_TARGET_DIR="$HOME/.builds/cargo-target"
