@@ -20,6 +20,13 @@ export RUSTC_WRAPPER=sccache
 # build local e distribuído em dois testes seguidos.
 export SCCACHE_IDLE_TIMEOUT=0
 
+# sccache fora do makepkg/paru: com o [dist] ativo, o proc-macro do
+# wayland-scanner gera `protocol` vazio no nó remoto e o wayland-client
+# não compila (walker 2.17.1, Viamar-PC, 2026-09-24). Build local passa.
+# Em pacote AUR o ganho do cluster é nulo mesmo (teste de 2026-09-21).
+paru()    { RUSTC_WRAPPER= command paru "$@" }
+makepkg() { RUSTC_WRAPPER= command makepkg "$@" }
+
 export CARGO_HOME="$HOME/.builds/cargo"
 export CARGO_TARGET_DIR="$HOME/.builds/cargo-target"
 export CARGO_INCREMENTAL=0   # incremental do cargo conflita com o cache do sccache
