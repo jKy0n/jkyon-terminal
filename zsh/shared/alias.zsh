@@ -4,7 +4,7 @@
 #        Path:       /home/jkyon/.jkyon-terminal/zsh/shared/alias.zsh
 #        Author:     John Kennedy a.k.a. jKyon
 #        Created:    2026-02-23
-#        Updated:    2026-09-06
+#        Updated:    2026-09-22
 #        Notes:      All the aliases I use in the terminal, organized alphabetically by the command they alias.
 #                    Some of these aliases are just for fun, while others are meant to improve my workflow and productivity.
 #                    Feel free to use any of these aliases or modify them to suit your needs!
@@ -16,6 +16,7 @@ alias bulk-ocr='/home/jkyon/ShellScript/Tools/bulk-ocr/bulk-ocr.sh'
 #
 # C
 alias claudio='cd ~/.jkyon-ai-context && claude'
+alias compare-hash-folder='/home/jkyon/ShellScript/Tools/compare-hash-folder/compare-hash-folder.sh'
 # alias cp='cp -v'
 #
 # D
