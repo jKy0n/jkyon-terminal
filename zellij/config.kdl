@@ -1,5 +1,4 @@
 
-copy_command "wl-copy"
 default_layout "catppuccin-custom"
 default_shell "zsh"
 focus_follows_mouse true
