@@ -2,8 +2,8 @@
 
 format = """
 $os(lavender)\
-${custom.pwd}\
-${custom.git} \
+$directory\
+$git_branch$git_status \
 $fill $cmd_duration \
 $fill $username$hostname\
 $time \
@@ -31,109 +31,23 @@ disabled = false
 show_notifications = false
 min_time_to_notify = 45000
 
-[custom.pwd]
-description = "Diretório atual com o último segmento em negrito"
-when = true
-shell = ["python3", "-c"]
-use_stdin = false
-unsafe_no_escape = true
-command = '''
-import os
-p = os.environ.get("PWD") or os.getcwd()
-home = os.environ.get("HOME", "")
-if home and (p == home or p.startswith(home + "/")):
-    p = "~" + p[len(home):]
-is_abs = p.startswith("/")
-segs = [s for s in p.split("/") if s]
-trunc = len(segs) > 4
-if trunc:
-    segs = segs[-4:]
-subs = {
-    "~": "\uf015 ",
-}
-segs = [subs.get(s, s) for s in segs]
-prefix = "\u2026/" if trunc else ("/" if is_abs else "")
-if len(segs) > 1:
-    head = "/".join(segs[:-1])
-    print(f"{prefix}{head}/\033[1m{segs[-1]}\033[22m", end="")
-else:
-    only = segs[-1] if segs else ""
-    print(f"{prefix}\033[1m{only}\033[22m", end="")
-'''
-format = "[  $output  ]($style)[](fg:blue)"
+[directory]
 style = "bg:blue fg:crust"
+format = "[  $path  ]($style)[](fg:blue)"
+truncation_length = 3
+truncate_to_repo = true
+home_symbol = "~"
+read_only = " 🔒"
+read_only_style = "red"
 
-[custom.git]
-description = "Branch + status git, autocontido (so existe dentro de repo git)"
-when = true
-shell = ["python3", "-c"]
-use_stdin = false
-unsafe_no_escape = true
-command = '''
-import subprocess
+[git_branch]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[](fg:green)[ $symbol$branch ]($style bold)'
 
-def run(args):
-    try:
-        return subprocess.run(["git", *args], capture_output=True, text=True, timeout=2)
-    except Exception:
-        return None
-
-top = run(["rev-parse", "--is-inside-work-tree"])
-if not top or top.returncode != 0 or top.stdout.strip() != "true":
-    raise SystemExit(0)
-
-b = run(["symbolic-ref", "--short", "-q", "HEAD"])
-if b and b.returncode == 0 and b.stdout.strip():
-    branch = b.stdout.strip()
-else:
-    h = run(["rev-parse", "--short", "HEAD"])
-    branch = h.stdout.strip() if h and h.returncode == 0 else "?"
-
-st = run(["status", "--porcelain=v1"])
-lines = st.stdout.splitlines() if st and st.returncode == 0 else []
-staged = modified = untracked = conflicted = 0
-for line in lines:
-    if len(line) < 2:
-        continue
-    x, y = line[0], line[1]
-    if x in "UAD" and y in "UAD" and x == y:
-        conflicted += 1
-    else:
-        if x not in " ?":
-            staged += 1
-        if y == "M":
-            modified += 1
-        if x == "?" and y == "?":
-            untracked += 1
-
-ahead = behind = 0
-ab = run(["rev-list", "--left-right", "--count", "HEAD...@{u}"])
-if ab and ab.returncode == 0:
-    parts = ab.stdout.split()
-    if len(parts) == 2:
-        ahead, behind = int(parts[0]), int(parts[1])
-
-parts = [f" {branch}"]
-status_bits = []
-if conflicted:
-    status_bits.append(f"={conflicted}")
-if staged:
-    status_bits.append(f"+{staged}")
-if modified:
-    status_bits.append(f"!{modified}")
-if untracked:
-    status_bits.append(f"?{untracked}")
-if status_bits:
-    parts.append("".join(status_bits))
-if ahead:
-    parts.append(f"⇡{ahead}")
-if behind:
-    parts.append(f"⇣{behind}")
-
-print(" ".join(parts), end="")
-'''
-format = '([ ](fg:green)[ $output ](fg:crust bold bg:green)[ ](fg:green))'
-style = "bold"
+[git_status]
+style = "bg:green fg:crust"
+format = '[($all_status$ahead_behind )]($style bold)[](fg:green)'
 
 [fill]
 symbol = '·'
