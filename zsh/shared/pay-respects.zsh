@@ -1,5 +1,8 @@
 
 
+# Sem o binário, sai quieto (nem toda máquina tem o pay-respects instalado)
+command -v pay-respects >/dev/null || return 0
+
 # Ativa o pay-respects
 eval "$(pay-respects zsh --alias)"
 
