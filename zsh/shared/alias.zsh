@@ -70,6 +70,7 @@ alias ookla-work='speedtest --server-id=53390'
 # Q
 #
 # R
+alias rambox-update='/home/jkyon/ShellScript/Tools/rambox-update/rambox-update.sh' # Rambox extraído, sem FUSE
 alias reboot='systemctl reboot'
 alias rg='rg --color=auto'
 alias rzsh='source /home/jkyon/.zshrc && sleep 1'
