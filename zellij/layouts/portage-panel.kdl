@@ -30,7 +30,7 @@ layout {
                 name "disks"
                 size "15%"
                 command "nice"
-                args "--adjustment=19" "watch" "--interval" "2" "df" "-h" "/efi" "/boot" "/" "/home" "/mnt/cache"
+                args "--adjustment=19" "watch" "--interval" "2" "df" "-h" "/efi" "/boot" "/" "/home" "/mnt/fast"
 
             }
         }

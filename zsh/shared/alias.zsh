@@ -105,7 +105,7 @@ alias vmake='/home/jkyon/ShellScript/Tools/imake/vmake/vmake.sh'
 alias wake-builder='ssh viamar-pc "bash /home/jkyon/ShellScript/Viamar-PC/Scripts/wake-builder/wake-builder.sh"'
 alias wake-theseusmachine='ssh crisnote "bash /home/jkyon/ShellScript/CrisNote/tools/wake-theseusmachine/wake-theseusmachine.sh"'
 alias wake-viamar='ssh builder "bash /home/jkyon/ShellScript/Viamar-PC/Scripts/wake-viamar/wake-viamar.sh"'
-alias watch-disks='nice -n 19 watch -n 1 --color --differences "echo && df -h /efi /boot / /home /mnt/cache"'
+alias watch-disks='nice -n 19 watch -n 1 --color --differences "echo && df -h /efi /boot / /home /mnt/fast"'
 alias watch19='sh /home/jkyon/ShellScript/Tools/watch19.sh'
 #
 # X
