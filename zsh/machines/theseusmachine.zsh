@@ -30,7 +30,6 @@ alias genlop-watch='nice --adjustment=19 watch --color --interval 1 genlop -ci'
 #
 #  P
 alias portage-panel='zellij --layout portage-panel'
-alias portage-sync='update-mirrorselect && sudo emerge --verbose --sync && update-distro'
 alias portage-unused-ranker='sh /home/jkyon/ShellScript/TheseusMachine/portage-tools/portage-unused-ranker/portage-unused-ranker.sh'
 #
 #  Q
@@ -45,7 +44,6 @@ alias radeontop='radeontop --color --transparency'
 alias theseusmachine-kernel-upgrade-panel='zellij --layout theseusmachine-kernel-upgrade-panel'
 #
 #  U
-alias update-mirrorselect='sh /home/jkyon/ShellScript/TheseusMachine/systemd/PortageSync/systemd-mirrorselect-update.sh'
 #
 #  V
 #

@@ -66,6 +66,8 @@ alias ookla-home='speedtest --server-id=53390'
 alias ookla-work='speedtest --server-id=53390'
 #
 # P
+# Gentoo: sync do Portage (o timer portage-sync-cache já faz sozinho) + lista do que há pra atualizar
+alias portage-sync='sudo emerge --sync && update-distro'
 #
 # Q
 #
@@ -87,6 +89,8 @@ alias ssh-test-connection='sh /home/jkyon/ShellScript/Tools/ssh-test-connection/
 alias unlock-sudo='echo "Use root password" && su -c "faillock --user jkyon --reset"'
 alias update-all-arch='pssh -H "viamar-pc crisnote builder" -l jkyon -i "bash /home/jkyon/ShellScript/Tools/update-distro/updateDistro.sh"'
 alias update-distro='sh /home/jkyon/ShellScript/Tools/update-distro/updateDistro.sh'
+# Gentoo: mirrors agora (o mirrorselect-update.timer faz toda quarta, 04:00)
+alias update-mirrorselect='sudo systemctl start mirrorselect-update.service && cat /etc/portage/mirrors.list'
 alias upgrade-all-arch='pssh -H "viamar-pc crisnote builder" -l jkyon -i "bash /home/jkyon/ShellScript/Viamar-PC/upgradeParu.sh"'
 alias upgrade-distro='sh /home/jkyon/ShellScript/Tools/upgrade-distro/upgradeDistro.sh'
 # TODO: hoje só funciona na TheseusMachine — plano é unificar num script que
