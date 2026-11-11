@@ -2,16 +2,16 @@
 
 ![jkyon-terminal screenshot](docs/screenshot-2026-08-07.png)
 
-> Ambiente de terminal unificado — **zsh** + **tmux** + **Alacritty** — com o mesmo comportamento em qualquer uma das minhas máquinas, seja Arch ou Gentoo, com GUI ou apenas SSH.
+> Ambiente de terminal unificado — **zsh** + **zellij** + **Kitty** — com o mesmo comportamento em qualquer uma das minhas máquinas, seja Arch ou Gentoo, com GUI ou apenas SSH.
 
 ## 📋 Overview
 
-Esse repositório substitui a necessidade de configurar zsh/tmux/Alacritty do zero em cada máquina nova. Um `git clone` + `./install.sh` e está pronto:
+Esse repositório substitui a necessidade de configurar zsh/zellij/Kitty do zero em cada máquina nova. Um `git clone` + `./install.sh` e está pronto:
 
 - 🔌 **Plugins vendorizados** como git submodules — o mesmo commit exato roda em qualquer distro, sem depender de qual versão o gerenciador de pacotes decidiu empacotar.
 - 🔐 **Secrets cifrados** com `git-crypt`, seguros mesmo com o repositório público.
 - 🖥️ **Perfil completo ou mínimo**, detectado automaticamente — TTY físico ou máquina headless caem num modo leve, sem ícones nem plugins pesados.
-- 🎨 Tema **Catppuccin** (Frappe) consistente entre o prompt (Starship), a barra do tmux e o terminal.
+- 🎨 Tema **Catppuccin** (Frappe) consistente entre o prompt (Starship), o zellij e o terminal.
 
 ## 🚀 Instalação
 
@@ -26,7 +26,7 @@ Esse repositório substitui a necessidade de configurar zsh/tmux/Alacritty do ze
 | `zoxide`        | navegação inteligente de diretórios |
 | `atuin`         | histórico com busca fuzzy           |
 | `starship`      | prompt (binário externo, não vendorizado) |
-| Fonte Nerd Font | ícones do prompt e da barra do tmux |
+| Fonte Nerd Font | ícones do prompt e da barra do zellij |
 
 ```bash
 git clone git@github.com:jKy0n/jkyon-terminal.git ~/.jkyon-terminal
@@ -34,7 +34,7 @@ cd ~/.jkyon-terminal
 ./install.sh
 ```
 
-O script cuida de: symlinks pra `~/.config/{zsh,tmux,alacritty}` e `~/.zshenv` (com backup automático do que já existir), inicialização dos submodules, tentativa de `git-crypt unlock`, e checagem dos pacotes de sistema.
+O script cuida de: symlinks pra `~/.config/{zsh,kitty,zellij}`, `~/.config/starship.toml` e `~/.zshenv` (com backup automático do que já existir), inicialização dos submodules, tentativa de `git-crypt unlock`, e checagem dos pacotes de sistema.
 
 > **Fez fork?** Sem os secrets nem sem estar autorizado no git-crypt, tudo funciona normalmente — só o conteúdo de `zsh/secrets/` fica ilegível. Veja a seção de criptografia abaixo pra configurar o seu.
 
@@ -44,10 +44,6 @@ O script cuida de: symlinks pra `~/.config/{zsh,tmux,alacritty}` e `~/.zshenv` (
 - [fzf-tab](https://github.com/Aloxaf/fzf-tab) — completion fuzzy
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-
-**tmux** (TPM como submodule; o resto instalado por ele via `prefix + I`):
-- [catppuccin/tmux](https://github.com/catppuccin/tmux) — tema
-- tmux-sensible, tmux-better-mouse-mode
 
 **Binários de sistema** (não são plugins vendorizáveis, `install.sh` verifica): `fzf`, `zoxide`, `atuin`, [`starship`](https://starship.rs) — prompt, tema em `starship/starship.toml` (perfil completo) e `starship/starship-minimal.toml` (TTY/headless)
 
@@ -80,9 +76,8 @@ Outros módulos automáticos, sem comando pra digitar: detecção de `ssh-agent`
 ```
 jkyon-terminal/
     ├── zsh/ # shared/ (módulos comuns), machines/ (overrides por host), secrets/ (cifrado), plugins/ (submodules)
-    ├── tmux/ # tmux.conf, conf.d/, plugins/tpm (submodule)
-    ├── alacritty/ # alacritty.toml + tema
     ├── kitty/ # kitty.conf + tema
+    ├── zellij/ # config.kdl, layouts/, plugins/
     ├── starship/ # starship.toml (completo) + starship-minimal.toml (TTY/headless)
     ├── docs (screenshots e documentação)
     └── install.sh
