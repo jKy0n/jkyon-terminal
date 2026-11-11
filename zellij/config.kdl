@@ -5,7 +5,7 @@ focus_follows_mouse true
 mouse_hover_tips true
 scroll_buffer_size 10000
 simplified_ui false
-theme "catppuccin-frappe"
+theme "catppuccin-macchiato"
 
 
 keybinds {
