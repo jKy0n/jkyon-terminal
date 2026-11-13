@@ -34,5 +34,7 @@ source "$ZDOTDIR/shared/theme.zsh"
 
 [[ -r "$ZDOTDIR/shared/functions/git.zsh" ]] && source "$ZDOTDIR/shared/functions/git.zsh"
 [[ -r "$ZDOTDIR/shared/functions/ssh-agent.zsh" ]] && source "$ZDOTDIR/shared/functions/ssh-agent.zsh"
+[[ -r "$ZDOTDIR/shared/functions/incubadora.zsh" ]] && source "$ZDOTDIR/shared/functions/incubadora.zsh"
+[[ -r "$ZDOTDIR/shared/functions/tmp-claude-nopasswd.zsh" ]] && source "$ZDOTDIR/shared/functions/tmp-claude-nopasswd.zsh"
 [[ -r "$ZDOTDIR/shared/alias.zsh" ]] && source "$ZDOTDIR/shared/alias.zsh"
 [[ -r "$ZDOTDIR/shared/zellij.zsh" ]] && source "$ZDOTDIR/shared/zellij.zsh"
